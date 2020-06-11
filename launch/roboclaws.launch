@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <launch>
+
+    <arg name="test_mode"       default="false"                     />
+    <arg name="baud"            default="115200"                    />
+    <arg name="address"         default="128"                       />
+    <arg name="loop_hz"         default="4"                        />
+    <arg name="deadman_secs"    default="3"                         />
+
+
+
+    <arg name="name_L"            default="roboclaw_L"                  />
+    <arg name="dev_names_L"       default="/dev/ttyACM0"              />
+    <arg name="speed_cmd_topic_L" default="$(arg name_L)/speed_command" />
+    <arg name="stats_topic_L"     default="$(arg name_L)/stats"         />
+
+    <node name="$(arg name_L)" pkg="roboclaw_driver" type="roboclaw_node.py">
+        <param name="test_mode" type="bool" value="$(arg test_mode)" />
+        <param name="dev_names" type="str" value="$(arg dev_names_L)" />
+        <param name="baud" type="int" value="$(arg baud)" />
+        <param name="address" type="int" value="$(arg address)" />
+        <param name="loop_hz" type="int" value="$(arg loop_hz)" />
+        <param name="deadman_secs" type="int" value="$(arg deadman_secs)" />
+ 
+        <param name="speed_cmd_topic" type="str" value="$(arg speed_cmd_topic_L)" />
+        <param name="stats_topic" type="str" value="$(arg stats_topic_L)" />
+    </node>
+
+
+    <arg name="name_R"            default="roboclaw_R"                  />
+    <arg name="dev_names_R"       default="/dev/ttyACM1"              />
+    <arg name="speed_cmd_topic_R" default="$(arg name_R)/speed_command" />
+    <arg name="stats_topic_R"     default="$(arg name_R)/stats"         />
+
+    <node name="$(arg name_R)" pkg="roboclaw_driver" type="roboclaw_node.py">
+        <param name="test_mode" type="bool" value="$(arg test_mode)" />
+        <param name="dev_names" type="str" value="$(arg dev_names_R)" />
+        <param name="baud" type="int" value="$(arg baud)" />
+        <param name="address" type="int" value="$(arg address)" />
+        <param name="loop_hz" type="int" value="$(arg loop_hz)" />
+        <param name="deadman_secs" type="int" value="$(arg deadman_secs)" />
+ 
+        <param name="speed_cmd_topic" type="str" value="$(arg speed_cmd_topic_R)" />
+        <param name="stats_topic" type="str" value="$(arg stats_topic_R)" />
+    </node>
+
+</launch>
