@@ -5,7 +5,7 @@ import rospy
 from geometry_msgs.msg import Twist
 from roboclaw_driver.msg import SpeedCommand
 
-encoder_resolution = 1024*40
+encoder_resolution = 1920
 angular_velocity_multiplier = 1.92
 wheel_separation = 0.85
 wheel_radius = 0.15
@@ -36,8 +36,11 @@ def pub_motor(motor_L, motor_R):
 
     msg.m1_qpps = motor_L
     msg.m2_qpps = motor_L
-    msg.accel = 100
-    msg.max_secs = 100
+    msg.accel = 1500
+    msg.max_secs = 1
+
+
+
 
     pub_speed_l.publish(msg)
     print msg
