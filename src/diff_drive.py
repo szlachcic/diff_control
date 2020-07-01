@@ -9,7 +9,7 @@ encoder_resolution = 1920
 angular_velocity_multiplier = 1.4
 wheel_separation = 0.85
 wheel_radius = 0.15
-wheel_accel = 3000
+wheel_accel = 6000
 wheel_stop = 1
 
 
@@ -20,8 +20,8 @@ def callback_cmd(data):
 
     z *= angular_velocity_multiplier
 
-    wheel_L_lin_vel = x + (z * wheel_separation / 2)
-    wheel_R_lin_vel = x - (z * wheel_separation / 2)
+    wheel_L_lin_vel = x - (z * wheel_separation / 2)
+    wheel_R_lin_vel = x + (z * wheel_separation / 2)
 
     wheel_L_ang_vel = wheel_L_lin_vel / wheel_radius
     wheel_R_ang_vel = wheel_R_lin_vel / wheel_radius
@@ -41,13 +41,13 @@ def pub_motor(motor_L, motor_R):
     msg.max_secs = wheel_stop
 
     pub_speed_l.publish(msg)
-    print msg
+    # print msg
 
     msg.m1_qpps = motor_R
     msg.m2_qpps = motor_R
 
     pub_speed_r.publish(msg)
-    print msg
+    # print msg
 
 
 if __name__ == "__main__":

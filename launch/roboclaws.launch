@@ -5,7 +5,7 @@
     <arg name="test_mode"       default="false"                     />
     <arg name="baud"            default="115200"                    />
     <arg name="address"         default="128"                       />
-    <arg name="loop_hz"         default="3"                        />
+    <arg name="loop_hz"         default="10"                        />
     <arg name="deadman_secs"    default="1"                         />
 
 
