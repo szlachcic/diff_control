@@ -15,7 +15,7 @@
     <arg name="speed_cmd_topic_L" default="$(arg name_L)/speed_command" />
     <arg name="stats_topic_L"     default="$(arg name_L)/stats"         />
 
-    <node name="$(arg name_L)" pkg="roboclaw_driver" type="roboclaw_node.py">
+    <node name="$(arg name_L)" pkg="roboclaw_driver" type="roboclaw_node.py" respawn="true">
         <param name="test_mode" type="bool" value="$(arg test_mode)" />
         <param name="dev_names" type="str" value="$(arg dev_names_L)" />
         <param name="baud" type="int" value="$(arg baud)" />
@@ -33,7 +33,7 @@
     <arg name="speed_cmd_topic_R" default="$(arg name_R)/speed_command" />
     <arg name="stats_topic_R"     default="$(arg name_R)/stats"         />
 
-    <node name="$(arg name_R)" pkg="roboclaw_driver" type="roboclaw_node.py">
+    <node name="$(arg name_R)" pkg="roboclaw_driver" type="roboclaw_node.py" respawn="true">
         <param name="test_mode" type="bool" value="$(arg test_mode)" />
         <param name="dev_names" type="str" value="$(arg dev_names_R)" />
         <param name="baud" type="int" value="$(arg baud)" />
