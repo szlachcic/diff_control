@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+    <include file="$(find diff_control)/launch/roboclaw_one.launch">
+    </include>
+
+    <node name="diff_drive" pkg="diff_control" type="diff_drive_one.py" respawn="true"/>
+
+    <include file="$(find usb_controller)/launch/joy.launch">
+    </include>
+
+
+
+</launch>
